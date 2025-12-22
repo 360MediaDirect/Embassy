@@ -186,7 +186,7 @@ For most use cases, 256-bit Elliptic Curve keys (ES256) are recommended for acce
 ```shell
 KEY_ID="MyKeyPair"
 # Private key
-openssl ecparam -genkey -name secp256k1 -noout -out "${KEY_ID}.priv.pem"
+openssl ecparam -genkey -name prime256v1 -noout -out "${KEY_ID}.priv.pem"
 # Public key
 openssl ec -in "${KEY_ID}.priv.pem" -pubout -out "${KEY_ID}.pub.pem"
 ```

@@ -54,8 +54,8 @@ export class Token {
         json: true
       })
       if (!decoded) throw new TokenParseError(`Bad token: ${token}`)
-      this.header = decoded.header
-      this.claims = decoded.payload
+      this.header = decoded.header as JWTHeader
+      this.claims = decoded.payload as Claims
     }
     this.decodeBlobs()
   }
@@ -289,12 +289,13 @@ export class Token {
     const params: jwt.SignOptions = {
       expiresIn: opts.expiresInSecs || this.opts.expiresInSecs,
       noTimestamp: !!opts.noTimestamp,
-      header: opts.header || {},
       ...(opts.subject && { subject: opts.subject }),
       ...(audience && { audience }),
       ...(issuer && { issuer })
     }
-    params.header['kid'] = kid
+    if (opts.header || kid) {
+      params.header = { ...opts.header, kid } as jwt.JwtHeader
+    }
     const key = await this.getPrivateKeyDefinition(kid)
     return new Promise((resolve, reject) => {
       params.algorithm = key.algorithm as jwt.Algorithm

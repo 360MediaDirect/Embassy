@@ -16,10 +16,10 @@ import { pub, priv } from './fixtures/keys'
 import delay from 'delay'
 
 const testTokenStr =
-  'eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiIsImtpZCI6Imdvb2RLZXkifQ.eyJhdWQiOiJ0ZX' +
+  'eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Imdvb2RLZXkifQ.eyJhdWQiOiJ0ZX' +
   'N0LWF1ZGllbmNlIiwiaXNzIjoidGVzdC1pc3N1ZXIiLCJzdWIiOiJiYXIiLCJwcm0iOiIiLCJ' +
-  'pYXQiOjE0NjM4ODk0ODYsImV4cCI6MTQ2Mzg4OTQ5MX0.W6Ulky7iGnCp9OGtbVzm_Bdz-FOO' +
-  'dL_2UFuaixsPE8FBQxtByG4nBNrUOcaT6_qJ7_tHZNqFfICQM24NzqxxgQ'
+  'pYXQiOjE3NjY0MjM0MjMsImV4cCI6MTc2NjQyMzQyOH0.Poxo7j5fgZTq19w9wI58nDQYo1de' +
+  '2_v6c2sOxK0OstATsKUH9rWp1mEE0VPQQ_lwIvSg5BjZ8lMMlKQ8FyxH7g'
 
 const domainScopes = {
   foo: { bar: 0, baz: 1 },
@@ -266,7 +266,7 @@ describe('Token', () => {
           const { privateKey, algorithm } = tokenOpts.keys[kid]
           return { privateKey, algorithm }
         },
-        keys: { privAlgo: { publicKey: 'PEM', algorithm: 'RS512' } }
+        keys: { privAlgo: { publicKey: 'PEM', algorithm: 'ES256' } }
       })
       const signed = await inst.sign('privAlgo', { subject: 'foo' })
       expect(signed).toBeDefined()
