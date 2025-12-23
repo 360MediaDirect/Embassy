@@ -1,7 +1,7 @@
 <!-- LOGO AND SHIELDS -->
 <br />
 <p align="center">
-  <a href="https://github.com/TomFrost/Embassy">
+  <a href="https://github.com/360MediaDirect/Embassy">
     <img src="http://i.tomfro.st/uTz1mF.svg" alt="Embassy Logo" width="400" height="250">
   </a>
 
@@ -10,28 +10,35 @@
   <p align="center">
     Create access, ID, and refresh tokens • Embed hundreds of scopes in a small token string • Zero-IO token verification in your services • Auto-download and cache missing keys • As easy as <code>embassy.parseToken(token).verify()</code>
     <br />
-    <a href="https://github.com/TomFrost/Embassy/blob/master/docs/modules.md"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/360MediaDirect/Embassy/blob/master/docs/modules.md"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://www.npmjs.com/package/embassy"><img alt="npm" src="https://img.shields.io/npm/v/embassy?style=flat-square"></a>
-    <a href="https://travis-ci.org/TomFrost/Embassy"><img src="https://img.shields.io/travis/tomfrost/embassy/master?style=flat-square" alt="build status" height="20"></a>
-    <a href="https://www.npmjs.com/package/embassy"><img alt="download count" src="https://img.shields.io/npm/dm/embassy?style=flat-square"></a>
-    <a href="https://codeclimate.com/github/TomFrost/Embassy"><img alt="Code Climate coverage" src="https://img.shields.io/codeclimate/coverage/TomFrost/Embassy?style=flat-square"></a>
-    <a href="https://codeclimate.com/github/TomFrost/Embassy"><img alt="Code Climate maintainability" src="https://img.shields.io/codeclimate/maintainability/TomFrost/Embassy?style=flat-square"></a>
-    <a href="https://github.com/TomFrost/Embassy/blob/master/LICENSE.txt"><img alt="License" src="https://img.shields.io/github/license/tomfrost/embassy?style=flat-square"></a>
+    <a href="https://www.npmjs.com/package/@360mediadirect/embassy"><img alt="npm" src="https://img.shields.io/npm/v/@360mediadirect/embassy?style=flat-square"></a>
+    <a href="https://www.npmjs.com/package/@360mediadirect/embassy"><img alt="download count" src="https://img.shields.io/npm/dm/@360mediadirect/embassy?style=flat-square"></a>
+    <a href="https://github.com/360MediaDirect/Embassy/blob/master/LICENSE.txt"><img alt="License" src="https://img.shields.io/github/license/360MediaDirect/embassy?style=flat-square"></a>
   </p>
 </p>
+
+## About This Fork
+
+This is a maintained fork of the original [Embassy](https://github.com/TomFrost/Embassy) project by Tom Shawver. This fork includes:
+
+- **Security Updates**: All 45 security vulnerabilities in dependencies have been resolved
+- **Dependency Updates**: Updated to latest compatible versions of all dependencies
+- **Ongoing Maintenance**: Active maintenance and security monitoring
+
+This fork is published as `@360mediadirect/embassy` on npm.
 
 ## Install
 
 ```shell
-npm install --save embassy
+npm install --save @360mediadirect/embassy
 ```
 
 or
 
 ```shell
-yarn add embassy
+yarn add @360mediadirect/embassy
 ```
 
 ## Initialize
@@ -64,7 +71,7 @@ const embassy = new Embassy({
 })
 ```
 
-Embassy can be configured to find public and private keys when an unknown key ID is found, and refresh the scopes when an unknown scope is encountered. Always run smoothly without forced restarts or configuration updates. **[See the options »](https://github.com/TomFrost/Embassy/blob/master/docs/interfaces/embassyoptions.md)**
+Embassy can be configured to find public and private keys when an unknown key ID is found, and refresh the scopes when an unknown scope is encountered. Always run smoothly without forced restarts or configuration updates. **[See the options »](https://github.com/360MediaDirect/Embassy/blob/master/docs/interfaces/embassyoptions.md)**
 
 ## Integrate
 
@@ -79,7 +86,7 @@ const tokenString = await token.sign('myKey')
 // Token expires in an hour by default
 ```
 
-**[embassy.createToken docs](https://github.com/TomFrost/Embassy/blob/master/docs/classes/embassy.md#createtoken) • [token.sign docs](https://github.com/TomFrost/Embassy/blob/master/docs/classes/token.md#sign)**
+**[embassy.createToken docs](https://github.com/360MediaDirect/Embassy/blob/master/docs/classes/embassy.md#createtoken) • [token.sign docs](https://github.com/360MediaDirect/Embassy/blob/master/docs/classes/token.md#sign)**
 
 ### Verify access tokens
 
@@ -89,7 +96,7 @@ const claims = await token.verify() // Throws if invalid, expired, etc
 console.log(`New request from ${claims.email}`)
 ```
 
-**[embassy.parseToken docs](https://github.com/TomFrost/Embassy/blob/master/docs/classes/embassy.md#parsetoken) • [token.verify docs](https://github.com/TomFrost/Embassy/blob/master/docs/classes/token.md#verify)**
+**[embassy.parseToken docs](https://github.com/360MediaDirect/Embassy/blob/master/docs/classes/embassy.md#parsetoken) • [token.verify docs](https://github.com/360MediaDirect/Embassy/blob/master/docs/classes/token.md#verify)**
 
 ### Create and sign refresh tokens
 
@@ -104,7 +111,7 @@ const tokenString = await token.sign('myKey', {
 })
 ```
 
-**[embassy.createToken docs](https://github.com/TomFrost/Embassy/blob/master/docs/classes/embassy.md#createtoken) • [token.sign docs](https://github.com/TomFrost/Embassy/blob/master/docs/classes/token.md#sign)**
+**[embassy.createToken docs](https://github.com/360MediaDirect/Embassy/blob/master/docs/classes/embassy.md#createtoken) • [token.sign docs](https://github.com/360MediaDirect/Embassy/blob/master/docs/classes/token.md#sign)**
 
 ### Verify refresh tokens
 
@@ -116,7 +123,7 @@ const claims = await token.verify({
 console.log(`Checking if ${claims.email} is still in good status...`)
 ```
 
-**[embassy.parseToken docs](https://github.com/TomFrost/Embassy/blob/master/docs/classes/embassy.md#parsetoken) • [token.verify docs](https://github.com/TomFrost/Embassy/blob/master/docs/classes/token.md#verify)**
+**[embassy.parseToken docs](https://github.com/360MediaDirect/Embassy/blob/master/docs/classes/embassy.md#parsetoken) • [token.verify docs](https://github.com/360MediaDirect/Embassy/blob/master/docs/classes/token.md#verify)**
 
 ### Grant scopes to tokens
 
@@ -136,7 +143,7 @@ await token.grantScopes({
 // single token can hold hundreds of scopes and still stay small!
 ```
 
-**[token.grantScope docs](https://github.com/TomFrost/Embassy/blob/master/docs/classes/token.md#grantscope) • [token.grantScopes docs](https://github.com/TomFrost/Embassy/blob/master/docs/classes/token.md#grantscopes)**
+**[token.grantScope docs](https://github.com/360MediaDirect/Embassy/blob/master/docs/classes/token.md#grantscope) • [token.grantScopes docs](https://github.com/360MediaDirect/Embassy/blob/master/docs/classes/token.md#grantscopes)**
 
 _Tip: Change "grant" to "revoke" and it does exactly what you'd expect!_
 
@@ -157,7 +164,7 @@ await token.hasScopes({
 })
 ```
 
-**[token.hasScope docs](https://github.com/TomFrost/Embassy/blob/master/docs/classes/token.md#hasscope) • [token.hasScopes docs](https://github.com/TomFrost/Embassy/blob/master/docs/classes/token.md#hasscopes)**
+**[token.hasScope docs](https://github.com/360MediaDirect/Embassy/blob/master/docs/classes/token.md#hasscope) • [token.hasScopes docs](https://github.com/360MediaDirect/Embassy/blob/master/docs/classes/token.md#hasscopes)**
 
 ### Read and write claims
 
@@ -167,7 +174,7 @@ token.claims.nonce = myNonce
 // Token can be signed with no further action
 ```
 
-**[Token docs](https://github.com/TomFrost/Embassy/blob/master/docs/classes/token.md)**
+**[Token docs](https://github.com/360MediaDirect/Embassy/blob/master/docs/classes/token.md)**
 
 ## Generate keys
 
@@ -193,11 +200,11 @@ openssl ec -in "${KEY_ID}.priv.pem" -pubout -out "${KEY_ID}.pub.pem"
 
 ## Versions
 
-Embassy is committed to supporting all active LTE versions of Node.js, and strives to stay updated for new non-LTE releases.
+Embassy requires Node.js version 12 or higher and is committed to supporting all active LTS versions of Node.js.
 
 ## License
 
-Embassy is Copyright (c) 2017-2021 Tom Shawver, released under the ultra-permissive ISC license. See LICENSE.txt for details.
+Embassy is Copyright (c) 2017-2025 Tom Shawver, released under the ultra-permissive ISC license. See LICENSE.txt for details.
 
 ## Credits
 
