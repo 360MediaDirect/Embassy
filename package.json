@@ -1,6 +1,6 @@
 {
-  "name": "embassy",
-  "version": "2.0.4",
+  "name": "@360mediadirect/embassy",
+  "version": "2.0.5",
   "description": "Simple JSON Web Tokens (JWT) with embedded scopes for services",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -19,7 +19,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TomFrost/embassy.git"
+    "url": "git+https://github.com/360MediaDirect/Embassy.git"
   },
   "keywords": [
     "JWT",
